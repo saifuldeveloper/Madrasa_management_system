@@ -1,0 +1,291 @@
+<div class="modal-content" id="modalWidth">
+    <div class="modal-header modal-header-image">
+        <h5 class="modal-title" id="modalLabel2">
+            {{ ___('common.grave_information') }}
+        </h5>
+        <button type="button" class="m-0 btn-close d-flex justify-content-center align-items-center"
+            data-bs-dismiss="modal" aria-label="Close"><i class="fa fa-times text-white" aria-hidden="true"></i></button>
+    </div>
+    <div class="modal-body p-5">
+        <div class="table-responsive table_height_450 niceScroll">
+            <div class="col-lg-12">
+                <div class="row">
+                    <h5 style="background: #3249A9;color: white;padding: 10px;padding-left:30px;">
+                        {{ ___('common.dead_person_information') }}</h5>
+                    {{-- <div class="col-md-3">
+
+                        <label for="validationServer04" class="form-label">{{ ___('common.graves_row') }}
+                            <span class="fillable">*</span></label>
+                        <select id="getSections" disabled
+                            class="nice-select niceSelect bordered_style wide @error('graves_row') is-invalid @enderror"
+                            name="graves_row" id="validationServer04" aria-describedby="validationServer04Feedback">
+                            <option value="">{{ ___('common.graves_row') }}</option>
+                            @foreach ($data['graves_row'] as $item)
+                                <option {{ @$data['grave']->graveRow->id == $item->id ? 'selected' : '' }}
+                                    value="{{ $item->id }}">{{ $item->name }}
+                            @endforeach
+                            </option>
+                        </select>
+
+                        @error('class')
+                            <div id="validationServer04Feedback" class="invalid-feedback">
+                                {{ $message }}
+                            </div>
+                        @enderror
+
+                    </div> --}}
+                    {{-- <div class="col-md-3 mb-3">
+                        <label for="exampleDataList" class="form-label ">{{ ___('common.grave_no') }} <span
+                                class="fillable">*</span></label>
+                        <input class="form-control ot-input @error('grave_no') is-invalid @enderror" readonly
+                            list="datalistOptions" id="exampleDataList"
+                            placeholder="{{ ___('common.enter_grave_no') }}" value="{{ $data['grave']->grave_no }}">
+                        @error('grave_no')
+                            <div id="validationServer04Feedback" class="invalid-feedback">
+                                {{ $message }}
+                            </div>
+                        @enderror
+                    </div> --}}
+                    <div class="col-md-3 mb-3">
+                        <label for="exampleDataList" class="form-label ">{{ ___('common.name') }}
+                            <span class="fillable">*</span></label>
+                        <input class="form-control ot-input @error('first_name') is-invalid @enderror" name="first_name" readonly
+                            list="datalistOptions" id="exampleDataList"
+                            placeholder="{{ ___('student_info.enter_first_name') }}"
+                            value="{{ $data['grave']->frist_name }}">
+                        @error('first_name')
+                            <div id="validationServer04Feedback" class="invalid-feedback">
+                                {{ $message }}
+                            </div>
+                        @enderror
+                    </div>
+                    {{-- <div class="col-md-3 mb-3">
+                        <label for="exampleDataList" class="form-label ">{{ ___('student_info.last_name') }}
+                            <span class="fillable">*</span></label>
+                        <input class="form-control ot-input @error('last_name') is-invalid @enderror" name="last_name" readonly
+                            list="datalistOptions" id="exampleDataList"
+                            placeholder="{{ ___('student_info.enter_last_name') }}"
+                            value="{{ $data['grave']->last_name }}">
+                        @error('last_name')
+                            <div id="validationServer04Feedback" class="invalid-feedback">
+                                {{ $message }}
+                            </div>
+                        @enderror
+                    </div> --}}
+                    <div class="col-md-3">
+                        <label for="validationServer04" class="form-label">{{ ___('common.gender') }} <span
+                                class="fillable"></span></label>
+                        <select class="nice-select niceSelect bordered_style wide @error('gender') is-invalid @enderror" disabled
+                            name="gender" id="validationServer04" aria-describedby="validationServer04Feedback">
+                            <option value="">{{ ___('student_info.select_gender') }}</option>
+                            @foreach ($data['genders'] as $item)
+                                <option {{ @$data['grave']->GenderName->id == $item->id ? 'selected' : '' }}
+                                    value="{{ $item->id }}">{{ $item->name }}
+                            @endforeach
+                        </select>
+                        @error('gender')
+                            <div id="validationServer04Feedback" class="invalid-feedback">
+                                {{ $message }}
+                            </div>
+                        @enderror
+                    </div>
+                    {{-- <div class="col-md-3 mb-3">
+                        <label for="exampleDataList" class="form-label ">{{ ___('common.date_of_birth') }}
+                            <span class="fillable">*</span></label>
+                        <input type="date" class="form-control ot-input @error('date_of_birth') is-invalid @enderror" readonly
+                            name="date_of_birth" list="datalistOptions" id="exampleDataList"
+                            placeholder="{{ ___('common.date_of_birth') }}"
+                            value="{{ $data['grave']->date_of_birth }}">
+                        @error('date_of_birth')
+                            <div id="validationServer04Feedback" class="invalid-feedback">
+                                {{ $message }}
+                            </div>
+                        @enderror
+                    </div> --}}
+                    <div class="col-md-3 mb-3">
+                        <label for="exampleDataList" class="form-label ">{{ ___('common.date_of_burial') }}
+                            <span class="fillable">*</span></label>
+                        <input type="date"
+                            class="form-control ot-input @error('date_of_burial') is-invalid @enderror" readonly
+                            name="date_of_burial" list="datalistOptions" id="exampleDataList"
+                            placeholder="{{ ___('student_info.date_of_burial') }}"
+                            value="{{ $data['grave']->date_of_bural }}">
+                        @error('date_of_burial')
+                            <div id="validationServer04Feedback" class="invalid-feedback">
+                                {{ $message }}
+                            </div>
+                        @enderror
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <label class="form-label">{{ ___('common.address') }} </label>
+                        <input name="address" placeholder="{{ ___('common.address') }}"
+                            value="{{ $data['grave']->address }}" class="email form-control ot-input mb_30" readonly
+                            type="text">
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <label for="exampleDataList" class="form-label ">{{ ___('common.father_name') }}
+                            <span class="fillable">*</span></label>
+                        <input class="form-control ot-input @error('father_name') is-invalid @enderror" readonly
+                            name="father_name" list="datalistOptions" id="exampleDataList"
+                            placeholder="{{ ___('common.enter_father_name') }}"
+                            value="{{ $data['grave']->father_name }}">
+                        @error('father_name')
+                            <div id="validationServer04Feedback" class="invalid-feedback">
+                                {{ $message }}
+                            </div>
+                        @enderror
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <label for="exampleDataList" class="form-label ">{{ ___('common.mother_name') }}
+                            <span class="fillable">*</span></label>
+                        <input class="form-control ot-input @error('mother_name') is-invalid @enderror" readonly
+                            name="mother_name" list="datalistOptions" id="exampleDataList"
+                            placeholder="{{ ___('common.enter_mother_name') }}"
+                            value="{{ $data['grave']->mother_name }}">
+                        @error('mother_name')
+                            <div id="validationServer04Feedback" class="invalid-feedback">
+                                {{ $message }}
+                            </div>
+                        @enderror
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <label for="exampleDataList" class="form-label ">{{ ___('common.husband') }}
+                            <span class="fillable">*</span></label>
+                        <input class="form-control ot-input @error('husband') is-invalid @enderror" readonly
+                            name="husband" list="datalistOptions" id="exampleDataList"
+                            placeholder="{{ ___('common.enter_husband_name') }}"
+                            value="{{ $data['grave']->husband_name }}">
+                        @error('husband')
+                            <div id="validationServer04Feedback" class="invalid-feedback">
+                                {{ $message }}
+                            </div>
+                        @enderror
+                    </div>
+                    <div class="col-md-3">
+                        <label for="validationServer04" class="form-label">{{ ___('student_info.blood') }}
+                            <span class="fillable"></span></label>
+                        <select class="nice-select niceSelect bordered_style wide @error('blood') is-invalid @enderror" disabled
+                            name="blood" id="validationServer04" aria-describedby="validationServer04Feedback">
+                            <option value="">{{ ___('student_info.select_blood') }}</option>
+                            @foreach ($data['bloods'] as $item)
+                                <option {{ @$data['grave']->blood->id == $item->id ? 'selected' : '' }}
+                                    value="{{ $item->id }}">{{ $item->name }}
+                            @endforeach
+                        </select>
+                        @error('blood')
+                            <div id="validationServer04Feedback" class="invalid-feedback">
+                                {{ $message }}
+                            </div>
+                        @enderror
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <label for="exampleDataList" class="form-label ">{{ ___('common.note') }}
+                            <span class="fillable">*</span></label>
+                        <input class="form-control ot-input @error('note') is-invalid @enderror" name="note" readonly
+                            list="datalistOptions" id="exampleDataList" placeholder="{{ ___('common.enter_note') }}"
+                            value="{{ $data['grave']->note }}">
+                        @error('note')
+                            <div id="validationServer04Feedback" class="invalid-feedback">
+                                {{ $message }}
+                            </div>
+                        @enderror
+                    </div>
+
+                    <hr>
+
+                    <h5 style="background: #3249A9;color: white;padding: 10px; padding-left:30px;">
+                        {{ ___('common.relative_information') }}</h5>
+                    <hr>
+
+                    <div class="col-md-3 mb-3">
+                        <label for="exampleDataList" class="form-label ">{{ ___('common.name') }} 
+                            <span class="fillable">*</span></label>
+                        <input class="form-control ot-input @error('first_name') is-invalid @enderror" readonly
+                            name="relative_frist_name" list="datalistOptions" id="exampleDataList"
+                            placeholder="{{ ___('student_info.enter_first_name') }}"
+                            value="{{ $data['grave']->relative_frist_name }}">
+                        @error('first_name')
+                            <div id="validationServer04Feedback" class="invalid-feedback">
+                                {{ $message }}
+                            </div>
+                        @enderror
+                    </div>
+
+                    {{-- <div class="col-md-3 mb-3">
+                        <label for="exampleDataList" class="form-label ">{{ ___('student_info.last_name') }} 
+                            <span class="fillable">*</span></label>
+                        <input class="form-control ot-input @error('last_name') is-invalid @enderror" readonly
+                            name="relative_last_name" list="datalistOptions" id="exampleDataList"
+                            placeholder="{{ ___('student_info.enter_last_name') }}"
+                            value="{{ @$data['grave']->relative_second_name }}">
+                        @error('last_name')
+                            <div id="validationServer04Feedback" class="invalid-feedback">
+                                {{ $message }}
+                            </div>
+                        @enderror
+                    </div> --}}
+                    <div class="col-md-3 mb-3">
+                        <label for="exampleDataList" class="form-label ">{{ ___('student_info.mobile') }}
+                            <span class="fillable">*</span></label>
+                        <input class="form-control ot-input @error('mobile') is-invalid @enderror"
+                            name="relative_mobile" list="datalistOptions" id="exampleDataList" type="number" readonly
+                            placeholder="{{ ___('student_info.enter_mobile') }}"
+                            value="{{ $data['grave']->relative_mobile }}">
+                        @error('mobile')
+                            <div id="validationServer04Feedback" class="invalid-feedback">
+                                {{ $message }}
+                            </div>
+                        @enderror
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <label for="exampleDataList" class="form-label ">{{ ___('common.email') }} <span
+                                class="fillable"></span></label>
+                        <input class="form-control ot-input @error('email') is-invalid @enderror"
+                            name="relative_email" list="datalistOptions" id="exampleDataList" type="email"  readonly
+                            placeholder="{{ ___('student_info.enter_email') }}" 
+                            value="{{ $data['grave']->relative_email }}">
+                        @error('email')
+                            <div id="validationServer04Feedback" class="invalid-feedback">
+                                {{ $message }}
+                            </div>
+                        @enderror
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <label for="exampleDataList" class="form-label ">{{ ___('common.name_of_the_relationship') }}
+                            <span class="fillable">*</span></label>
+                        <input class="form-control ot-input @error('name_of_the_relationship') is-invalid @enderror"
+                            name="name_of_the_relationship" list="datalistOptions" id="exampleDataList"
+                            type="text" placeholder="{{ ___('common.name_of_the_relationship') }}"  readonly
+                            value="{{ $data['grave']->name_of_the_relationship }}">
+                        @error('name_of_the_relationship')
+                            <div id="validationServer04Feedback" class="invalid-feedback">
+                                {{ $message }}
+                            </div>
+                        @enderror
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <label class="form-label">{{ ___('common.present_address') }} </label>
+                        <span class="fillable">*</span></label>
+                        <input name="relative_present_address" placeholder="{{ ___('common.present_address') }}"  readonly
+                            class=" form-control ot-input mb_30"
+                            value="{{ $data['grave']->relative_present_address }}" type="text">
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <label class="form-label">{{ ___('common.parmanent_address') }} </label>
+                        <input name="relative_parmanent_address" readonly
+                            value="{{ $data['grave']->relative_parmanent_address }}"
+                            placeholder="{{ ___('common.parmanent_address') }}" class=" form-control ot-input mb_30"
+                            type="text">
+                    </div>
+
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-outline-secondary py-2 px-4"
+            data-bs-dismiss="modal">{{ ___('ui_element.cancel') }}</button>
+
+    </div>
